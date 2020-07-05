@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <TabHost
+        android1:id="@+id/tab_host"
+        android1:layout_width="match_parent"
+        android1:layout_height="match_parent" >
+        <LinearLayout
+            android1:layout_width="match_parent"
+            android1:layout_height="match_parent"
+            android1:orientation="vertical" >
+
+            <TabWidget
+                android1:id="@android:id/tabs"
+                android1:layout_width="match_parent"
+                android1:layout_height="match_parent">
+            </TabWidget>
+            <FrameLayout
+                android1:id="@android:id/tabcontent"
+                android1:layout_width="match_parent"
+                android1:layout_height="match_parent" >
+
+                <RelativeLayout
+                    android1:id="@+id/Display"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:id="@+id/editText_depth"
+                        android:background="#ffffff"
+                        android:textSize="35dp"
+                        android:minHeight="40dp"
+                        android:minWidth="150dp"
+                        android:gravity="center"
+                        android:enabled="true"
+                        android:layout_alignTop="@+id/textView_depth"
+                        android:layout_alignStart="@+id/editText_temp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:id="@+id/editText_temp"
+                        android:background="#ffffff"
+                        android:textSize="35dp"
+                        android:minHeight="40dp"
+                        android:minWidth="150dp"
+                        android:gravity="center"
+                        android:nestedScrollingEnabled="false"
+                        android:fitsSystemWindows="false"
+                        android:enabled="true"
+                        android:contextClickable="false"
+                        android:layout_alignTop="@+id/textView_temp"
+                        android:layout_toEndOf="@+id/textView_temp"
+                        android:layout_alignParentStart="false"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="CHL"
+                        android:id="@+id/textView_depth"
+                        android:background="#ffffff"
+                        android:minWidth="220dp"
+                        android:gravity="center"
+                        android:minHeight="40dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="30dp"
+                        android:layout_below="@+id/textView_temp"
+                        android:layout_alignStart="@+id/textView_temp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Temp   [&apos;C]"
+                        android:id="@+id/textView_temp"
+                        android:background="#ffffff"
+                        android:minWidth="220dp"
+                        android:gravity="center"
+                        android:minHeight="40dp"
+                        android:layout_marginTop="60dp"
+                        android:textSize="30dp"
+                        android:singleLine="false"
+                        android:layout_below="@+id/button_motor"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="BGA"
+                        android:id="@+id/textView_bga"
+                        android:background="#ffffff"
+                        android:minWidth="220dp"
+                        android:gravity="center"
+                        android:minHeight="40dp"
+                        android:layout_below="@+id/textView_chlRingBuf"
+                        android:layout_alignStart="@+id/textView_chlRingBuf"
+                        android:layout_marginTop="15dp"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:id="@+id/textView_bga_2"
+                        android:background="#ffffff"
+                        android:textSize="35dp"
+                        android:minHeight="40dp"
+                        android:minWidth="150dp"
+                        android:gravity="center"
+                        android:enabled="true"
+                        android:layout_alignTop="@+id/textView_bga"
+                        android:layout_alignStart="@+id/editText_depth" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RECORD"
+                        android:id="@+id/button_record"
+                        android:drawableTop="@drawable/ic_record_2"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Motor"
+                        android:id="@+id/button_motor"
+                        android:drawableTop="@drawable/ic_rotation"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:clickable="false"
+                        android:elegantTextHeight="false"
+                        android:textSize="13dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="CHL RingBuf"
+                        android:id="@+id/textView_chlRingBuf"
+                        android:layout_below="@+id/textView_depth"
+                        android:layout_alignStart="@+id/textView_depth"
+                        android:layout_marginTop="15dp"
+                        android:minHeight="40dp"
+                        android:minWidth="220dp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="BGA RingBuf"
+                        android:id="@+id/textView"
+                        android:layout_below="@+id/textView_bga"
+                        android:layout_alignStart="@+id/textView_bga"
+                        android:layout_marginTop="15dp"
+                        android:minHeight="40dp"
+                        android:minWidth="220dp"
+                        android:gravity="center"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="0"
+                        android:id="@+id/textView_chl_RingBuf_num"
+                        android:layout_alignTop="@+id/textView_chlRingBuf"
+                        android:layout_alignStart="@+id/editText_depth"
+                        android:textSize="35dp"
+                        android:gravity="center"
+                        android:minHeight="40dp"
+                        android:minWidth="150dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="0"
+                        android:id="@+id/textView_bga_RingBuf_num"
+                        android:gravity="center"
+                        android:minHeight="40dp"
+                        android:minWidth="150dp"
+                        android:textSize="35dp"
+                        android:layout_alignTop="@+id/textView"
+                        android:layout_alignStart="@+id/textView_bga_2"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="START"
+                        android:id="@+id/btn_master"
+                        android:layout_gravity="right"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="센서 값"
+                        android:id="@+id/textView3"
+                        android:layout_above="@+id/editText_temp"
+                        android:layout_toEndOf="@+id/textView_temp"
+                        android:minHeight="40dp"
+                        android:minWidth="150dp"
+                        android:gravity="center"
+                        android:textSize="25dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android1:id="@+id/FileOut"
+                    android1:layout_width="match_parent"
+                    android1:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전송"
+                        android:id="@+id/btn_send"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="저장파일\n불러오기"
+                        android:id="@+id/ReadFile"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:textSize="13dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="내용"
+                        android:id="@+id/reloadFile"
+                        android:layout_below="@+id/ReadFile"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignBottom="@+id/btn_send"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Graph"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal|top">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전송"
+                        android:id="@+id/btn_send1"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/Setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal|top">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="offset 설정 완료"
+                        android:id="@+id/button_offset"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="저장할 파일 이름"
+                        android:id="@+id/textView4"
+                        android:textSize="25dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"/>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/editText_FileName"
+                        android:text="파일명"
+                        android:textSize="25dp"
+                        android:layout_below="@+id/textView4"
+                        android:layout_alignEnd="@+id/button_offset"
+                        android:layout_alignParentStart="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="센서 주기 설정"
+                        android:id="@+id/textView5"
+                        android:layout_below="@+id/editText_FileName"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="30dp"
+                        android:textSize="25dp"/>
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3초"
+                        android:id="@+id/button_3sec"
+                        android:layout_alignTop="@+id/textView5"
+                        android:layout_toEndOf="@+id/textView5"
+                        android:minWidth="60dp"
+                        android:textSize="20dp"/>
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5초"
+                        android:id="@+id/button_5sec"
+                        android:layout_alignTop="@+id/button_3sec"
+                        android:layout_toEndOf="@+id/button_3sec"
+                        android:minWidth="60dp"
+                        android:textSize="20dp"/>
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10초"
+                        android:id="@+id/button_10sec"
+                        android:layout_alignTop="@+id/button_5sec"
+                        android:layout_toEndOf="@+id/button_5sec"
+                        android:minWidth="60dp"
+                        android:textSize="20dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="TEMP"
+                        android:id="@+id/textView6"
+                        android:textSize="25dp"
+                        android:layout_above="@+id/textView7"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center"
+                        android:minHeight="40dp"
+                        android:minWidth="200dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="CHL"
+                        android:id="@+id/textView7"
+                        android:textSize="25dp"
+                        android:layout_above="@+id/textView8"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center"
+                        android:minHeight="40dp"
+                        android:minWidth="200dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="CHL RingBuf"
+                        android:id="@+id/textView8"
+                        android:textSize="25dp"
+                        android:layout_above="@+id/textView2"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center"
+                        android:minHeight="40dp"
+                        android:minWidth="200dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="BGA RingBuf"
+                        android:id="@+id/textView9"
+                        android:textSize="25dp"
+                        android:layout_above="@+id/button_offset"
+                        android:layout_alignParentStart="true"
+                        android:gravity="center"
+                        android:minWidth="200dp"
+                        android:minHeight="40dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="BGA"
+                        android:id="@+id/textView2"
+                        android:layout_above="@+id/textView9"
+                        android:layout_alignParentStart="true"
+                        android:textSize="25dp"
+                        android:minWidth="200dp"
+                        android:minHeight="40dp"
+                        android:gravity="center"/>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bgaRing_input"
+                        android:text="0"
+                        android:layout_alignBottom="@+id/textView9"
+                        android:layout_alignStart="@+id/button_offset"
+                        android:textSize="20dp"
+                        android:minHeight="40dp"
+                        android:minWidth="110dp"
+                        android:gravity="center"/>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bga_input"
+                        android:layout_above="@+id/bgaRing_input"
+                        android:layout_alignStart="@+id/bgaRing_input"
+                        android:minHeight="40dp"
+                        android:minWidth="110dp"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="20dp"/>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/chlRing_input"
+                        android:layout_alignBottom="@+id/textView8"
+                        android:layout_alignStart="@+id/bga_input"
+                        android:textSize="20dp"
+                        android:text="0"
+                        android:minHeight="40dp"
+                        android:minWidth="110dp"
+                        android:gravity="center"/>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/chl_input"
+                        android:layout_above="@+id/chlRing_input"
+                        android:layout_alignStart="@+id/chlRing_input"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textSize="20dp"
+                        android:minHeight="40dp"
+                        android:minWidth="110dp"/>
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/temp_input"
+                        android:layout_alignTop="@+id/textView6"
+                        android:layout_alignStart="@+id/chl_input"
+                        android:minHeight="40dp"
+                        android:minWidth="110dp"
+                        android:textSize="20dp"
+                        android:text="0"
+                        android:gravity="center"/>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>
